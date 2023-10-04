@@ -1,6 +1,6 @@
 "use client"
 import * as z from "zod";
-import {Billboard} from "@prisma/client";
+import {Color} from "@prisma/client";
 import { Trash } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,22 +16,24 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 
-import ImageUpload from "@/components/ui/image-upload";
+
 
 
 const formSchema = z.object({
-    label: z.string().min(1),
-    imageUrl: z.string().min(1)
+    name: z.string().min(1),
+    value: z.string().min(4).regex(/^#/,{
+        message: 'String must be valid hex code.'
+    })
 });
 
-type BillboardFormValues = z.infer<typeof formSchema>
+type ColorFormValues = z.infer<typeof formSchema>
 
-interface BillboardFormPage {
-    initialData: Billboard | null;
+interface ColorFormProps {
+    initialData: Color | null;
 }
 
 
-export const BillboardForm: React.FC<BillboardFormPage> = ({initialData})=>{
+export const ColorForm: React.FC<ColorFormProps> = ({initialData})=>{
     
     const params = useParams();
     const router = useRouter();
@@ -40,30 +42,30 @@ export const BillboardForm: React.FC<BillboardFormPage> = ({initialData})=>{
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const title = initialData ? "Edit Billboard" : "Create Billboard"; 
-    const description = initialData ? "Edit a Billboard" : "Add a new Billboard"; 
-    const toastMessage = initialData ? "Billboard Updated." : "Billboard Created"; 
+    const title = initialData ? "Edit color" : "Create color"; 
+    const description = initialData ? "Edit a color" : "Add a new color"; 
+    const toastMessage = initialData ? "Color Updated." : "Color Created"; 
     const action = initialData ? "Save changes" : "Create"; 
 
-    const form = useForm<BillboardFormValues>({
+    const form = useForm<ColorFormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: initialData || {
-            label: '',
-            imageUrl: ''
+            name: '',
+           value: ''
         }
     });
 
-    const onSubmit = async (data: BillboardFormValues)=>{
+    const onSubmit = async (data: ColorFormValues)=>{
         try{
             setLoading(true);
             if(initialData){
-                await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`, data);
+                await axios.patch(`/api/${params.storeId}/colors/${params.colorId}`, data);
             } else{
-                await axios.post(`/api/${params.storeId}/billboards`, data);
+                await axios.post(`/api/${params.storeId}/colors`, data);
             }
             
             router.refresh();
-            router.push(`/${params.storeId}/billboards`)
+            router.push(`/${params.storeId}/colors`)
             toast.success(toastMessage)
 
         }catch(error){
@@ -76,17 +78,18 @@ export const BillboardForm: React.FC<BillboardFormPage> = ({initialData})=>{
     const onDelete = async ()=> {
         try{
             setLoading(true)
-            await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
+            await axios.delete(`/api/${params.storeId}/colors/${params.colorId}`);
             router.refresh();
-            router.push(`/${params.storeId}/billboards`)
-            toast.success("Bllboard Deleted.");
+            router.push(`/${params.storeId}/colors`)
+            toast.success("Color Deleted.");
         } catch(error){
-            toast.error("Make sure you removed all categories using this billboard.")
+            toast.error("Make sure you removed all products using this color first.")
         } finally {
             setLoading(false)
             setOpen(false)
         }
     }
+    
 
     return (
         <>
@@ -116,42 +119,39 @@ export const BillboardForm: React.FC<BillboardFormPage> = ({initialData})=>{
         <Separator />
         <Form {...form}> 
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
-            
-            <FormField 
+            <div className="grid grid-cols-3 gap-8">
+                <FormField 
                     control={form.control}
-                    name="imageUrl"
+                    name="name"
                     render= {({field})=> (
                         <FormItem>
                             <FormLabel>
-                                Background Image
+                                Name
                             </FormLabel>
                             <FormControl className="w-400">
-                                <ImageUpload 
-                                value = {field.value ? [field.value] : []}
-                                disabled={loading}
-                                onChange={(url)=>field.onChange(url)}
-                                onRemove={()=>field.onChange("")}
-                                />
+                                <Input disabled={loading} placeholder="Color name" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
-                    )}
-                    />
+                )}
+                />
 
-            <div className="grid grid-cols-3 gap-8">
                 <FormField 
-                control={form.control}
-                name="label"
-                render= {({field})=> (
-                    <FormItem>
-                        <FormLabel>
-                            Label
-                        </FormLabel>
-                        <FormControl className="w-400">
-                            <Input disabled={loading} placeholder="Bllboard Label" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                    </FormItem>
+                    control={form.control}
+                    name="value"
+                    render= {({field})=> (
+                        <FormItem>
+                            <FormLabel>
+                                Value
+                            </FormLabel>
+                            <FormControl >
+                                <div className="flex item-center gap-x-4">
+                                    <Input disabled={loading} placeholder="Color value" {...field} />
+                                    <div className="border p-4 rounded-full" style={{backgroundColor: field.value}} />
+                                </div>                                
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
                 )}
                 />
 
