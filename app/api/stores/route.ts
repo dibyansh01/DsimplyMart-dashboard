@@ -23,7 +23,6 @@ export async function POST(
                 name,
                 userId
             }
-
         });
 
         return NextResponse.json(store)
