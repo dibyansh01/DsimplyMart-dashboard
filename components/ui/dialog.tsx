@@ -15,11 +15,19 @@ interface ExtendedDialogPortalProps extends DialogPortalProps {
   className?: any;
 }
 
-const DialogPortal: React.FC<ExtendedDialogPortalProps> = ({
-  className,
-  ...props
-}) => (
-  <DialogPrimitive.Portal className={cn(className)} {...props} />
+// const DialogPortal: React.FC<ExtendedDialogPortalProps> = ({
+//   className,
+//   ...props
+// }) => (
+//   <DialogPrimitive.Portal className={cn(className)} {...props} />
+// );
+
+const DialogPortal: React.FC<ExtendedDialogPortalProps> = (props) => (
+  <DialogPrimitive.Portal {...props}>
+    <div className={cn(props.className)}>
+      {props.children}
+    </div>
+  </DialogPrimitive.Portal>
 );
 
 // const DialogPortal = ({
