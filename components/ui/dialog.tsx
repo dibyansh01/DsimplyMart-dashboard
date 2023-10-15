@@ -15,12 +15,20 @@ interface ExtendedDialogPortalProps extends DialogPortalProps {
   className?: any;
 }
 
-const DialogPortal = ({
+const DialogPortal: React.FC<ExtendedDialogPortalProps> = ({
   className,
   ...props
-}: ExtendedDialogPortalProps) => (
+}) => (
   <DialogPrimitive.Portal className={cn(className)} {...props} />
-)
+);
+
+// const DialogPortal = ({
+//   className,
+//   ...props
+// }: ExtendedDialogPortalProps) => (
+//   <DialogPrimitive.Portal className={cn(className)} {...props} />
+// )
+
 DialogPortal.displayName = DialogPrimitive.Portal.displayName
 
 const DialogOverlay = React.forwardRef<
