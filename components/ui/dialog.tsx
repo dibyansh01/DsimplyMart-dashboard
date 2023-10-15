@@ -3,6 +3,7 @@
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { X } from "lucide-react"
+import { DialogPortalProps } from "@radix-ui/react-dialog";
 
 import { cn } from "@/lib/utils"
 
@@ -10,11 +11,14 @@ const Dialog = DialogPrimitive.Root
 
 const DialogTrigger = DialogPrimitive.Trigger
 
+interface ExtendedDialogPortalProps extends DialogPortalProps {
+  className?: any;
+}
+
 const DialogPortal = ({
   className,
-  children,
   ...props
-}: DialogPrimitive.DialogPortalProps) => (
+}: ExtendedDialogPortalProps) => (
   <DialogPrimitive.Portal className={cn(className)} {...props} />
 )
 DialogPortal.displayName = DialogPrimitive.Portal.displayName
