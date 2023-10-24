@@ -6,7 +6,7 @@
 
 ## Description
 
-This is an ecommerce admin dashboard for product configuration, reflecting sales satats & revenue and generating APIs for the store. 
+This is an eCommerce admin dashboard for product configuration, sales statistics, revenue tracking, and API generation for the store.
 
 ## Table of Contents
 
