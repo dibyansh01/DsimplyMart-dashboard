@@ -4,9 +4,11 @@
 [![GitHub issues](https://img.shields.io/github/issues/dibyansh01/DsimplyMart-dashboard)](https://github.com/dibyansh01/DsimplyMart-dashboard/issues)
 [![GitHub stars](https://img.shields.io/github/stars/dibyansh01/DsimplyMart-store)](https://github.com/dibyansh01/DsimplyMart-store/stargazers)
 
+
 ## Description
 
 This is an eCommerce admin dashboard for product configuration, sales statistics, revenue tracking, and API generation for the store.
+
 
 ## Table of Contents
 
@@ -19,7 +21,9 @@ This is an eCommerce admin dashboard for product configuration, sales statistics
 - [Contributing](#contributing)
 - [License](#license)
 
+
 ## Features
+
 The Ecommerce Dashboard offers a comprehensive set of features for administrators:
 
 - **Clerk Authentication**: Secure login system for authorized access.
@@ -46,8 +50,10 @@ The Ecommerce Dashboard offers a comprehensive set of features for administrator
 - Clerk
 - Stripe
 - and more...
+- 
 
 ## Screenshots
+
 
 ![Screenshot from 2023-10-25 02-09-05](https://github.com/dibyansh01/DsimplyMart-dashboard/assets/129924389/f842b423-6410-44df-9806-bab470a17a70)
 ![Screenshot from 2023-10-25 02-08-41](https://github.com/dibyansh01/DsimplyMart-dashboard/assets/129924389/2927b160-ca23-44c5-aaef-13fe4add0625)
@@ -55,7 +61,9 @@ The Ecommerce Dashboard offers a comprehensive set of features for administrator
 ![Screenshot from 2023-10-25 02-08-11](https://github.com/dibyansh01/DsimplyMart-dashboard/assets/129924389/cf5027fa-4f4f-4375-853b-fdd8421818ab)
 
 
+
 ## Demo
+
 
 You can access the live demo of the Ecommerce web app by following the link below:
 
@@ -64,8 +72,8 @@ You can access the live demo of the Ecommerce web app by following the link belo
 Feel free to explore the features and functionality of the app. We welcome your feedback and suggestions.
 
 
-
 ## Getting Started
+
 
 1. Clone the repository:
 
@@ -87,6 +95,7 @@ Feel free to explore the features and functionality of the app. We welcome your 
    
 
 ## Usage
+
 To use and interact with this eCommerce-dashboard, follow the steps below:
 
 ### 1. Login
