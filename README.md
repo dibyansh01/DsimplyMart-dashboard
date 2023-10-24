@@ -1,6 +1,6 @@
 # DsimplyMart-dashboard
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dibyansh01/DsimplyMart-store/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dibyansh01/DsimplyMart-dashboard/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/dibyansh01/DsimplyMart-dashboard)](https://github.com/dibyansh01/DsimplyMart-dashboard/issues)
 [![GitHub stars](https://img.shields.io/github/stars/dibyansh01/DsimplyMart-store)](https://github.com/dibyansh01/DsimplyMart-store/stargazers)
 
