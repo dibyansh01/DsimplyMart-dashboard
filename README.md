@@ -7,7 +7,7 @@
 
 ## Description
 
-This is an eCommerce admin dashboard for product configuration, sales statistics, revenue tracking, and API generation for the store.
+This is an eCommerce admin dashboard for product configuration, sales statistics, revenue tracking, and API generation for the store [Link](https://dsimply-mart-store.vercel.app).
 
 
 ## Table of Contents
@@ -28,7 +28,7 @@ The Ecommerce Dashboard offers a comprehensive set of features for administrator
 
 - **Clerk Authentication**: Secure login system for authorized access.
 - **Zustand State Management**: Efficient state management for a smooth user experience.
-- **Real-time Revenue and Sales Tracking**: Monitor real-time sales data and revenue.
+- **Real-time Revenue, Inventory and Sales Tracking**: Monitor real-time sales data, inventory and revenue.
 - **Store Management**: Create, modify, and manage multiple stores.
 - **Product Management**: Define products, categories, sizes, colors, and billboards for each store.
 - **Order Management**: View detailed order information, including customer details, ordered items, and order time.
