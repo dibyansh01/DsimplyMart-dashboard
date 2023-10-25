@@ -7,7 +7,7 @@
 
 ## Description
 
-This is an eCommerce admin dashboard for product configuration, sales statistics, revenue tracking, and API generation for the store [Link](https://dsimply-mart-store.vercel.app).
+This is an eCommerce admin dashboard for product configuration, sales statistics, revenue tracking, and API generation for the store [Link](https://github.com/dibyansh01/DsimplyMart-store).
 
 
 ## Table of Contents
